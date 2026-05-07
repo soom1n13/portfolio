@@ -236,7 +236,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
           <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm mb-2">
             지금까지의 활동이에요.
           </p>
-          <div className="space-y-1.5">
+          <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">
             {experienceData.map((exp, i) => (
               <motion.div
                 key={exp.name}
