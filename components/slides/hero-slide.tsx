@@ -32,8 +32,8 @@ const experienceData = [
   { name: "숭실대학교 해외 공학봉사단 SSUVEE 11기", period: "2025.06 – 2025.08", award: true, awardText: "은상" },
   { name: "GDG on Campus Soongsil University - Team member(Design)", period: "2025.09 – 현재", award: false },
   { name: "Global Startup Challenge 3기 (시드니)", period: "2025.12 – 2026.01", award: true, awardText: "Startup Pitching Winner" },
-  { name: "숭실대학교 국제 홍보대사 SIA 34기 홍보팀", period: "2025.01 – 현재", award: false },
-  { name: "kt wiz 대학생 리포터 위즈포터 10기", period: "2025.04 – 현재", award: false },
+  { name: "숭실대학교 국제 홍보대사 SIA 34기 홍보팀", period: "2026.01 – 현재", award: false },
+  { name: "kt wiz 대학생 리포터 위즈포터 10기", period: "2026.03 – 현재", award: false },
   { name: "멋쟁이사자처럼 14기 디자인 파트", period: "2026.03 – 현재", award: false },
 ]
 
@@ -310,28 +310,28 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
   }
 
   const getButtonStyle = (tagId: string, isActive: boolean) => {
-    if (tagId === "tools") {
-      return {
-        background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #818cf8, #6366f1) border-box",
-        border: "2px solid transparent",
-        color: isActive ? "#4f46e5" : "rgba(0,0,0,0.6)",
-        fontWeight: 600,
-      }
-    }
-    if (tagId === "experience") {
-      return {
-        background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #a78bfa, #ec4899) border-box",
-        border: "2px solid transparent",
-        color: isActive ? "#7c3aed" : "rgba(0,0,0,0.6)",
-        fontWeight: 600,
-      }
-    }
+  if (tagId === "tools") {
     return {
-      background: "rgba(255,255,255,0.85)",
-      border: isActive ? "2px solid rgba(100,145,255,0.5)" : "2px solid rgba(0,0,0,0.1)",
-      color: isActive ? "#6366f1" : "rgba(0,0,0,0.6)",
+      background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #5c6bc0, #7986cb) border-box",
+      border: "2px solid transparent",
+      color: isActive ? "#3949ab" : "rgba(0,0,0,0.6)",
+      fontWeight: 600,
     }
   }
+  if (tagId === "experience") {
+    return {
+      background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #78909c, #90a4ae) border-box",
+      border: "2px solid transparent",
+      color: isActive ? "#546e7a" : "rgba(0,0,0,0.6)",
+      fontWeight: 600,
+    }
+  }
+  return {
+    background: "rgba(255,255,255,0.85)",
+    border: isActive ? "2px solid rgba(92,107,192,0.5)" : "2px solid rgba(0,0,0,0.1)",
+    color: isActive ? "#5c6bc0" : "rgba(0,0,0,0.6)",
+  }
+}
 
   return (
     <section

@@ -4,36 +4,36 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #faf8f3;
-  --foreground: #3a3a2d;
+  --background: #faf9f7;
+  --foreground: #2d2d2d;
   --card: #ffffff;
-  --card-foreground: #3a3a2d;
+  --card-foreground: #2d2d2d;
   --popover: #ffffff;
-  --popover-foreground: #3a3a2d;
-  --primary: #3a3a2d;
-  --primary-foreground: #faf8f3;
-  --secondary: #f5f3eb;
-  --secondary-foreground: #3a3a2d;
-  --muted: #ede9df;
-  --muted-foreground: #8a8a6e;
-  --accent: #6b8f6b;
+  --popover-foreground: #2d2d2d;
+  --primary: #2d2d2d;
+  --primary-foreground: #faf9f7;
+  --secondary: #f5f3ef;
+  --secondary-foreground: #2d2d2d;
+  --muted: #ede9e3;
+  --muted-foreground: #8a8680;
+  --accent: #5c6bc0;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #e8e4d8;
-  --input: #e8e4d8;
-  --ring: #6b8f6b;
+  --border: #e8e3db;
+  --input: #e8e3db;
+  --ring: #5c6bc0;
   --radius: 0.75rem;
 
-  /* Gradient colors - cream + sage green */
-  --gradient-background-start: #faf8f3;
-  --gradient-background-end: #f5f3eb;
-  --first-color: 200, 220, 190;
-  --second-color: 180, 210, 175;
-  --third-color: 220, 215, 190;
-  --fourth-color: 190, 215, 185;
-  --fifth-color: 210, 220, 195;
-  --pointer-color: 160, 200, 155;
+  /* Gradient colors - warm white with soft warm tones */
+  --gradient-background-start: #faf9f7;
+  --gradient-background-end: #f5f3ef;
+  --first-color: 230, 220, 210;
+  --second-color: 220, 215, 200;
+  --third-color: 235, 225, 215;
+  --fourth-color: 225, 218, 205;
+  --fifth-color: 232, 222, 212;
+  --pointer-color: 215, 205, 190;
   --size: 80%;
   --blending-value: screen;
 }
@@ -205,10 +205,9 @@
 /* Name highlight - text selection/drag style with brackets */
 .name-highlight {
   display: inline;
-  background: rgba(140, 170, 255, 0.35);
-  padding: 0;
+  background: rgba(200, 190, 175, 0.4);
+  padding: 0 0.05em 0.05em 0.05em;
   border-radius: 0;
-  line-height: 1;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
