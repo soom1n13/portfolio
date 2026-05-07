@@ -206,8 +206,8 @@
 .name-highlight {
   display: inline;
   background: rgba(140, 170, 255, 0.35);
-  padding: 0.05em 0.2em;
-  border-radius: 3px;
+  padding: 0.05em 0.05em;
+  border-radius: 0;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
