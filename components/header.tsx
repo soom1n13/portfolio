@@ -2,25 +2,16 @@
 
 import { motion } from "framer-motion"
 
-interface HeaderProps {
-  onScrollTo: (index: number) => void
-}
-
-export function Header({ onScrollTo }: HeaderProps) {
+export function Header() {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
+    <motion.header
+      initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
-      className="hidden md:flex fixed inset-x-0 top-0 z-50 items-center justify-center h-14 pointer-events-none"
+      className="fixed top-4 left-1/2 -translate-x-1/2 z-50 flex items-center gap-2 px-4 py-2 bg-white/70 backdrop-blur-md rounded-full shadow-sm border border-border/30"
     >
-      <button
-        onClick={() => onScrollTo(0)}
-        className="pointer-events-auto flex items-center gap-2 font-sans text-lg font-medium text-foreground hover:text-accent transition-colors"
-      >
-        <span className="inline-block h-2 w-2 rounded-full bg-accent" />
-        Soomin Lee
-      </button>
-    </motion.div>
+      <div className="w-2 h-2 rounded-full bg-emerald-400" />
+      <span className="text-sm font-semibold text-foreground/80">Soomin Lee</span>
+    </motion.header>
   )
 }
