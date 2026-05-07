@@ -4,36 +4,36 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #fcfcff;
-  --foreground: #3a3a4d;
+  --background: #faf8f3;
+  --foreground: #3a3a2d;
   --card: #ffffff;
-  --card-foreground: #3a3a4d;
+  --card-foreground: #3a3a2d;
   --popover: #ffffff;
-  --popover-foreground: #3a3a4d;
-  --primary: #3a3a4d;
-  --primary-foreground: #fcfcff;
-  --secondary: #f7f8ff;
-  --secondary-foreground: #3a3a4d;
-  --muted: #f0f1f8;
-  --muted-foreground: #8a8aa6;
-  --accent: #7a9bff;
+  --popover-foreground: #3a3a2d;
+  --primary: #3a3a2d;
+  --primary-foreground: #faf8f3;
+  --secondary: #f5f3eb;
+  --secondary-foreground: #3a3a2d;
+  --muted: #ede9df;
+  --muted-foreground: #8a8a6e;
+  --accent: #6b8f6b;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  --border: #ecedf5;
-  --input: #ecedf5;
-  --ring: #7a9bff;
+  --border: #e8e4d8;
+  --input: #e8e4d8;
+  --ring: #6b8f6b;
   --radius: 0.75rem;
 
-  /* Gradient colors - soft but visible */
-  --gradient-background-start: #fcfcff;
-  --gradient-background-end: #f5f7ff;
-  --first-color: 170, 190, 255;
-  --second-color: 190, 170, 245;
-  --third-color: 160, 200, 255;
-  --fourth-color: 200, 180, 250;
-  --fifth-color: 170, 195, 255;
-  --pointer-color: 180, 195, 255;
+  /* Gradient colors - cream + sage green */
+  --gradient-background-start: #faf8f3;
+  --gradient-background-end: #f5f3eb;
+  --first-color: 200, 220, 190;
+  --second-color: 180, 210, 175;
+  --third-color: 220, 215, 190;
+  --fourth-color: 190, 215, 185;
+  --fifth-color: 210, 220, 195;
+  --pointer-color: 160, 200, 155;
   --size: 80%;
   --blending-value: screen;
 }
