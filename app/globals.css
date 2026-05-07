@@ -204,12 +204,10 @@
 
 /* Name highlight - text selection/drag style with brackets */
 .name-highlight {
-  position: relative;
   display: inline;
-  background: linear-gradient(135deg, rgba(140, 170, 255, 0.35) 0%, rgba(170, 150, 255, 0.3) 100%);
-  padding: 0.02em 0.15em;
-  margin: 0 0.1em;
-  border-radius: 4px;
+  background: rgba(140, 170, 255, 0.35);
+  padding: 0.05em 0.2em;
+  border-radius: 3px;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
 }
