@@ -144,7 +144,7 @@ function ProjectCard({ item }: { item: any }) {
             <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-gray-50 text-gray-500">{t}</span>
           ))}
         </div>
-        
+        <a
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
