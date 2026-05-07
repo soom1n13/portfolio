@@ -303,7 +303,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                       <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-white shadow-md">
                         <Image src="/profile.jpg" alt="이수민" width={36} height={36} className="w-full h-full object-cover" />
                       </div>
-                      <div className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-white" />
+                      <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-white" />
                     </div>
 
                     <div className="flex-1">
