@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { GradientBackground } from "@/components/gradient-background"
-import { ArrowRight, ArrowDown, ExternalLink, Play } from "lucide-react"
+import { ArrowRight, ExternalLink, Play } from "lucide-react"
 import Image from "next/image"
 
 interface HeroSlideProps {
@@ -26,14 +26,14 @@ const toolsData = [
 ]
 
 const experienceData = [
-  { name: "숭실대학교 글로벌미디어학부 학생회 20·21대", period: "2023.04 – 2024.06", award: false },
-  { name: "KT wiz 대학생 리포터 10기 (Wizporter)", period: "2025.04 – 현재", award: false },
+  { name: "제 20, 21대 숭실대학교 글로벌미디어학부 학생회 기획국", period: "2023.04 – 2024.06", award: false },
   { name: "숭실대학교 방송국 SSBS 58기 보도부", period: "2025.03 – 2026.01", award: false },
   { name: "KT 대학생 IT 서포터즈 3기", period: "2025.06 – 2025.09", award: true, awardText: "우수팀" },
   { name: "숭실대학교 해외 공학봉사단 SSUVEE 11기", period: "2025.06 – 2025.08", award: true, awardText: "은상" },
-  { name: "숭실대학교 국제 홍보대사 SIA 34기", period: "2025.01 – 현재", award: false },
-  { name: "Global Startup Challenge 3기 (시드니)", period: "2025.12 – 2026.01", award: true, awardText: "Pitching Winner 🏆" },
-  { name: "GDG on Campus Soongsil (Design)", period: "2025.09 – 현재", award: false },
+  { name: "GDG on Campus Soongsil University - Team member(Design)", period: "2025.09 – 현재", award: false },
+  { name: "Global Startup Challenge 3기 (시드니)", period: "2025.12 – 2026.01", award: true, awardText: "Startup Pitching Winner" },
+  { name: "숭실대학교 국제 홍보대사 SIA 34기 홍보팀", period: "2025.01 – 현재", award: false },
+  { name: "kt wiz 대학생 리포터 위즈포터 10기", period: "2025.04 – 현재", award: false },
   { name: "멋쟁이사자처럼 14기 디자인 파트", period: "2026.03 – 현재", award: false },
 ]
 
@@ -84,6 +84,7 @@ const contentsData = [
     link: "https://www.youtube.com/watch?v=DPicHe0IJfc",
     youtubeId: "DPicHe0IJfc",
     isYoutube: true,
+    linkLabel: "유튜브 보기",
   },
   {
     id: "ktwiz-shorts",
@@ -95,6 +96,7 @@ const contentsData = [
     link: "https://youtube.com/shorts/cG9uxT50qSU",
     youtubeId: "cG9uxT50qSU",
     isYoutube: true,
+    linkLabel: "유튜브 보기",
   },
   {
     id: "class-reel",
@@ -114,11 +116,10 @@ function ProjectCard({ item }: { item: any }) {
     <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg overflow-hidden"
+      className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden"
     >
       {item.isYoutube && (
-        <a
+        
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
@@ -144,7 +145,7 @@ function ProjectCard({ item }: { item: any }) {
             <span key={t} className="text-xs px-2 py-0.5 rounded-full bg-gray-50 text-gray-500">{t}</span>
           ))}
         </div>
-        <a
+        
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
@@ -158,6 +159,12 @@ function ProjectCard({ item }: { item: any }) {
   )
 }
 
+interface ChatMessage {
+  type: "sent" | "received"
+  tagId: string
+  tagLabel: string
+}
+
 export function HeroSlide({ onScrollNext }: HeroSlideProps) {
   const [activeTag, setActiveTag] = useState<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
@@ -165,14 +172,18 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
   const [inputValue, setInputValue] = useState("")
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [expandedItem, setExpandedItem] = useState<string | null>(null)
+  const [chatHistory, setChatHistory] = useState<ChatMessage[]>([])
 
-  const handleTagClick = (tagId: string) => {
+  const handleTagClick = (tagId: string, tagLabel: string) => {
     if (activeTag === tagId) {
       setActiveTag(null)
       setShowResponse(false)
       setIsLoading(false)
       setExpandedItem(null)
       return
+    }
+    if (activeTag && showResponse) {
+      setChatHistory(prev => [...prev, { type: "sent", tagId: activeTag, tagLabel: suggestionTags.find(t => t.id === activeTag)?.label || activeTag }])
     }
     setActiveTag(tagId)
     setIsLoading(true)
@@ -195,7 +206,132 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
   }
 
   const isExpanded = activeTag !== null && (isLoading || showResponse)
-  const currentItems = activeTag === "design" ? designData : activeTag === "contents" ? contentsData : []
+
+  const renderResponse = (tagId: string) => {
+    if (tagId === "tools") {
+      return (
+        <>
+          <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm mb-2">
+            제가 사용하는 도구들이에요.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {toolsData.map((tool, i) => (
+              <motion.span
+                key={tool.name}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: i * 0.07 }}
+                className="px-3 py-1 bg-white/80 border border-border/30 rounded-full text-xs font-medium text-foreground/70 shadow-sm"
+              >
+                {tool.name}
+              </motion.span>
+            ))}
+          </div>
+        </>
+      )
+    }
+    if (tagId === "experience") {
+      return (
+        <>
+          <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm mb-2">
+            지금까지의 활동이에요.
+          </p>
+          <div className="space-y-1.5">
+            {experienceData.map((exp, i) => (
+              <motion.div
+                key={exp.name}
+                initial={{ opacity: 0, x: -8 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: i * 0.04 }}
+                className="flex items-center justify-between bg-white/80 rounded-lg px-3 py-2 shadow-sm"
+              >
+                <div>
+                  <p className="text-xs font-semibold text-foreground/80">{exp.name}</p>
+                  <p className="text-xs text-foreground/40">{exp.period}</p>
+                </div>
+                {exp.award && (
+                  <span className="text-xs px-2 py-0.5 bg-amber-50 text-amber-600 rounded-full font-medium ml-2 shrink-0">
+                    {(exp as any).awardText}
+                  </span>
+                )}
+              </motion.div>
+            ))}
+          </div>
+        </>
+      )
+    }
+    if (tagId === "design" || tagId === "contents") {
+      const items = tagId === "design" ? designData : contentsData
+      return (
+        <>
+          <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm mb-2">
+            {tagId === "design" ? "디자인 작업물이에요." : "영상 콘텐츠예요."}
+          </p>
+          <div className="space-y-2">
+            {items.map((item, i) => (
+              <motion.div
+                key={item.id}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08 }}
+              >
+                <AnimatePresence mode="wait">
+                  {expandedItem === item.id ? (
+                    <motion.div key="expanded">
+                      <button
+                        onClick={() => setExpandedItem(null)}
+                        className="text-xs text-foreground/40 mb-1.5 hover:text-foreground/70 transition-colors"
+                      >
+                        ← 닫기
+                      </button>
+                      <ProjectCard item={item} />
+                    </motion.div>
+                  ) : (
+                    <motion.button
+                      key="collapsed"
+                      onClick={() => setExpandedItem(item.id)}
+                      className="w-full flex items-center justify-between bg-white/80 rounded-xl px-3 py-2.5 shadow-sm hover:bg-white transition-colors text-left"
+                    >
+                      <div>
+                        <p className="text-xs font-semibold text-foreground/80">{item.title}</p>
+                        <p className="text-xs text-foreground/40">{item.subtitle}</p>
+                      </div>
+                      <ArrowRight className="w-3.5 h-3.5 text-foreground/30 shrink-0 ml-2" />
+                    </motion.button>
+                  )}
+                </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
+        </>
+      )
+    }
+    return null
+  }
+
+  const getButtonStyle = (tagId: string, isActive: boolean) => {
+    if (tagId === "tools") {
+      return {
+        background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #818cf8, #6366f1) border-box",
+        border: "2px solid transparent",
+        color: isActive ? "#4f46e5" : "rgba(0,0,0,0.6)",
+        fontWeight: 600,
+      }
+    }
+    if (tagId === "experience") {
+      return {
+        background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #a78bfa, #ec4899) border-box",
+        border: "2px solid transparent",
+        color: isActive ? "#7c3aed" : "rgba(0,0,0,0.6)",
+        fontWeight: 600,
+      }
+    }
+    return {
+      background: "rgba(255,255,255,0.85)",
+      border: isActive ? "2px solid rgba(100,145,255,0.5)" : "2px solid rgba(0,0,0,0.1)",
+      color: isActive ? "#6366f1" : "rgba(0,0,0,0.6)",
+    }
+  }
 
   return (
     <section
@@ -210,7 +346,6 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
         className="relative z-10 h-full w-full"
       >
         <GradientBackground />
-
         <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 md:px-12 lg:px-16">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -219,12 +354,11 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
             className="max-w-2xl w-full"
           >
             <h1 className="sr-only">이수민 - 기술과 사람 사이, 그 경계에서 가장 편한 사람</h1>
-
             <motion.div
-              className="flex items-start gap-4 mb-10"
+              className="flex items-start gap-4 mb-8"
               animate={{
-                y: isExpanded ? -60 : 0,
-                opacity: isExpanded ? 0.2 : 1,
+                y: isExpanded ? -50 : 0,
+                opacity: isExpanded ? 0.15 : 1,
                 scale: isExpanded ? 0.92 : 1,
               }}
               transition={{ duration: 0.5, ease: "easeOut" }}
@@ -243,6 +377,23 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
               </h2>
             </motion.div>
 
+            {chatHistory.length > 0 && (
+              <div className="space-y-1 mb-3">
+                {chatHistory.map((msg, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 0.5, y: 0 }}
+                    className="flex justify-end"
+                  >
+                    <span className="px-3 py-1 bg-foreground/80 text-background rounded-full text-xs font-semibold">
+                      {msg.tagLabel}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+
             <AnimatePresence>
               {!isExpanded && (
                 <motion.div
@@ -258,28 +409,11 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.15, delay: index * 0.03 }}
-                      whileHover={{
-                        y: -6,
-                        scale: 1.05,
-                        boxShadow: "0 12px 24px -6px rgba(100, 145, 255, 0.35)",
-                        transition: { duration: 0.1 }
-                      }}
+                      whileHover={{ y: -5, scale: 1.05, boxShadow: "0 12px 24px -6px rgba(100, 145, 255, 0.3)", transition: { duration: 0.1 } }}
                       whileTap={{ scale: 0.94, y: 0, transition: { duration: 0.05 } }}
-                      onClick={() => handleTagClick(tag.id)}
-                      className="px-4 py-1.5 rounded-full text-xs font-semibold shadow-md cursor-pointer transition-all duration-100"
-                      style={
-                        tag.id === "tools" || tag.id === "experience"
-                          ? {
-                              background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #818cf8, #a78bfa) border-box",
-                              border: "1.5px solid transparent",
-                              color: activeTag === tag.id ? "#6366f1" : "rgba(0,0,0,0.6)",
-                            }
-                          : {
-                              background: "rgba(255,255,255,0.85)",
-                              border: activeTag === tag.id ? "1.5px solid rgba(100,145,255,0.5)" : "1.5px solid rgba(0,0,0,0.1)",
-                              color: activeTag === tag.id ? "#6366f1" : "rgba(0,0,0,0.6)",
-                            }
-                      }
+                      onClick={() => handleTagClick(tag.id, tag.label)}
+                      className="px-4 py-1.5 rounded-full text-xs shadow-md cursor-pointer transition-all duration-100"
+                      style={getButtonStyle(tag.id, activeTag === tag.id)}
                     >
                       {tag.label}
                     </motion.button>
@@ -298,6 +432,11 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                   transition={{ duration: 0.4 }}
                   className="mb-5"
                 >
+                  <div className="flex justify-end mb-2">
+                    <span className="px-3 py-1 bg-foreground/80 text-background rounded-full text-xs font-semibold">
+                      {suggestionTags.find(t => t.id === activeTag)?.label}
+                    </span>
+                  </div>
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 relative">
                       <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-white shadow-md">
@@ -305,7 +444,6 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                       </div>
                       <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-white" />
                     </div>
-
                     <div className="flex-1">
                       {isLoading ? (
                         <motion.div
@@ -322,106 +460,12 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                           initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.4 }}
-                          className="space-y-2"
                         >
-                          {activeTag === "tools" && (
-                            <>
-                              <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm">
-                                제가 사용하는 도구들이에요.
-                              </p>
-                              <div className="flex flex-wrap gap-2">
-                                {toolsData.map((tool, i) => (
-                                  <motion.span
-                                    key={tool.name}
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: i * 0.07 }}
-                                    className="px-3 py-1 bg-white/80 border border-border/30 rounded-full text-xs font-medium text-foreground/70 shadow-sm"
-                                  >
-                                    {tool.name}
-                                  </motion.span>
-                                ))}
-                              </div>
-                            </>
-                          )}
-
-                          {activeTag === "experience" && (
-                            <>
-                              <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm">
-                                지금까지의 활동이에요.
-                              </p>
-                              <div className="space-y-1.5 max-h-52 overflow-y-auto pr-1">
-                                {experienceData.map((exp, i) => (
-                                  <motion.div
-                                    key={exp.name}
-                                    initial={{ opacity: 0, x: -8 }}
-                                    animate={{ opacity: 1, x: 0 }}
-                                    transition={{ delay: i * 0.05 }}
-                                    className="flex items-center justify-between bg-white/80 rounded-xl px-3 py-2 shadow-sm"
-                                  >
-                                    <div>
-                                      <p className="text-xs font-semibold text-foreground/80">{exp.name}</p>
-                                      <p className="text-xs text-foreground/40">{exp.period}</p>
-                                    </div>
-                                    {exp.award && (
-                                      <span className="text-xs px-2 py-0.5 bg-amber-50 text-amber-600 rounded-full font-medium ml-2 shrink-0">
-                                        {(exp as any).awardText}
-                                      </span>
-                                    )}
-                                  </motion.div>
-                                ))}
-                              </div>
-                            </>
-                          )}
-
-                          {(activeTag === "design" || activeTag === "contents") && (
-                            <>
-                              <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm">
-                                {activeTag === "design" ? "디자인 작업물이에요." : "영상 콘텐츠예요."}
-                              </p>
-                              <div className="space-y-2">
-                                {currentItems.map((item, i) => (
-                                  <motion.div
-                                    key={item.id}
-                                    initial={{ opacity: 0, y: 8 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: i * 0.08 }}
-                                  >
-                                    <AnimatePresence mode="wait">
-                                      {expandedItem === item.id ? (
-                                        <motion.div key="expanded">
-                                          <button
-                                            onClick={() => setExpandedItem(null)}
-                                            className="text-xs text-foreground/40 mb-1.5 hover:text-foreground/70 transition-colors"
-                                          >
-                                            ← 닫기
-                                          </button>
-                                          <ProjectCard item={item} />
-                                        </motion.div>
-                                      ) : (
-                                        <motion.button
-                                          key="collapsed"
-                                          onClick={() => setExpandedItem(item.id)}
-                                          className="w-full flex items-center justify-between bg-white/80 rounded-xl px-3 py-2.5 shadow-sm hover:bg-white transition-colors text-left"
-                                        >
-                                          <div>
-                                            <p className="text-xs font-semibold text-foreground/80">{item.title}</p>
-                                            <p className="text-xs text-foreground/40">{item.subtitle}</p>
-                                          </div>
-                                          <ArrowRight className="w-3.5 h-3.5 text-foreground/30 shrink-0 ml-2" />
-                                        </motion.button>
-                                      )}
-                                    </AnimatePresence>
-                                  </motion.div>
-                                ))}
-                              </div>
-                            </>
-                          )}
+                          {renderResponse(activeTag)}
                         </motion.div>
                       ) : null}
                     </div>
                   </div>
-
                   {showResponse && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
@@ -435,28 +479,11 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                           initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.12, delay: 0.3 + index * 0.04 }}
-                          whileHover={{
-                            y: -6,
-                            scale: 1.05,
-                            boxShadow: "0 12px 24px -6px rgba(100, 145, 255, 0.35)",
-                            transition: { duration: 0.1 }
-                          }}
+                          whileHover={{ y: -5, scale: 1.05, boxShadow: "0 12px 24px -6px rgba(100, 145, 255, 0.3)", transition: { duration: 0.1 } }}
                           whileTap={{ scale: 0.94, y: 0, transition: { duration: 0.05 } }}
-                          onClick={() => handleTagClick(tag.id)}
-                          className="px-4 py-1.5 rounded-full text-xs font-semibold shadow-md cursor-pointer transition-all duration-100"
-                          style={
-                            tag.id === "tools" || tag.id === "experience"
-                              ? {
-                                  background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #818cf8, #a78bfa) border-box",
-                                  border: "1.5px solid transparent",
-                                  color: "rgba(0,0,0,0.6)",
-                                }
-                              : {
-                                  background: "rgba(255,255,255,0.85)",
-                                  border: "1.5px solid rgba(0,0,0,0.1)",
-                                  color: "rgba(0,0,0,0.6)",
-                                }
-                          }
+                          onClick={() => handleTagClick(tag.id, tag.label)}
+                          className="px-4 py-1.5 rounded-full text-xs shadow-md cursor-pointer transition-all duration-100"
+                          style={getButtonStyle(tag.id, false)}
                         >
                           {tag.label}
                         </motion.button>
@@ -504,20 +531,6 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
               </AnimatePresence>
             </motion.div>
           </motion.div>
-
-          <motion.button
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            onClick={onScrollNext}
-            className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-muted-foreground/50 hover:text-foreground/70 transition-colors cursor-pointer"
-            aria-label="다음 섹션으로 스크롤"
-          >
-            <span className="text-xs font-mono uppercase tracking-wider">스크롤</span>
-            <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
-              <ArrowDown className="w-4 h-4" />
-            </motion.div>
-          </motion.button>
         </div>
       </motion.div>
     </section>
