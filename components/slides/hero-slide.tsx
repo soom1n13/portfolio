@@ -119,7 +119,7 @@ function ProjectCard({ item }: { item: any }) {
       className="bg-white/90 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden"
     >
       {item.isYoutube && (
-        
+        <a
           href={item.link}
           target="_blank"
           rel="noopener noreferrer"
