@@ -15,8 +15,8 @@ export function GradientBackground() {
     let tgY = 0
 
     const move = () => {
-      curX += (tgX - curX) / 20
-      curY += (tgY - curY) / 20
+      curX += (tgX - curX) / 8
+      curY += (tgY - curY) / 8 
       if (interBubble) {
         interBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`
       }
@@ -60,7 +60,7 @@ export function GradientBackground() {
         <div className="gradient-circle gradient-circle-5" />
         <div
           ref={interactiveRef}
-          className="absolute w-[80%] h-[80%] top-[-40%] left-[-40%] opacity-60"
+          className="absolute w-[60%] h-[60%] top-[-30%] left-[-30%] opacity-70"
           style={{
             background:
               "radial-gradient(circle at center, rgba(var(--pointer-color), 0.5), rgba(var(--pointer-color), 0) 50%)",
