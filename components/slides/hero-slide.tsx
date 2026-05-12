@@ -312,24 +312,24 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
   const getButtonStyle = (tagId: string, isActive: boolean) => {
   if (tagId === "tools") {
     return {
-      background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #5c6bc0, #7986cb) border-box",
+      background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #b8a988, #d7cdbe) border-box",
       border: "2px solid transparent",
-      color: isActive ? "#3949ab" : "rgba(0,0,0,0.6)",
+      color: isActive ? "#8a7654" : "rgba(0,0,0,0.6)",
       fontWeight: 600,
     }
   }
   if (tagId === "experience") {
     return {
-      background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #78909c, #90a4ae) border-box",
+      background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #a89876, #c8b89a) border-box",
       border: "2px solid transparent",
-      color: isActive ? "#546e7a" : "rgba(0,0,0,0.6)",
+      color: isActive ? "#7a6644" : "rgba(0,0,0,0.6)",
       fontWeight: 600,
     }
   }
   return {
     background: "rgba(255,255,255,0.85)",
-    border: isActive ? "2px solid rgba(92,107,192,0.5)" : "2px solid rgba(0,0,0,0.1)",
-    color: isActive ? "#5c6bc0" : "rgba(0,0,0,0.6)",
+    border: isActive ? "2px solid rgba(184, 169, 136, 0.6)" : "2px solid rgba(0,0,0,0.1)",
+    color: isActive ? "#8a7654" : "rgba(0,0,0,0.6)",
   }
 }
 
@@ -409,7 +409,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.15, delay: index * 0.03 }}
-                      whileHover={{ y: -5, scale: 1.05, boxShadow: "0 12px 24px -6px rgba(100, 145, 255, 0.3)", transition: { duration: 0.1 } }}
+                      whileHover={{ y: -5, scale: 1.05, boxShadow: "0 12px 24px -6px rgba(184, 169, 136, 0.4)", transition: { duration: 0.1 } }}
                       whileTap={{ scale: 0.94, y: 0, transition: { duration: 0.05 } }}
                       onClick={() => handleTagClick(tag.id, tag.label)}
                       className="px-4 py-1.5 rounded-full text-xs shadow-md cursor-pointer transition-all duration-100"
@@ -479,7 +479,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                           initial={{ opacity: 0, y: 8 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.12, delay: 0.3 + index * 0.04 }}
-                          whileHover={{ y: -5, scale: 1.05, boxShadow: "0 12px 24px -6px rgba(100, 145, 255, 0.3)", transition: { duration: 0.1 } }}
+                          whileHover={{ y: -5, scale: 1.05, boxShadow: "0 12px 24px -6px rgba(184, 169, 136, 0.4)", transition: { duration: 0.1 } }}
                           whileTap={{ scale: 0.94, y: 0, transition: { duration: 0.05 } }}
                           onClick={() => handleTagClick(tag.id, tag.label)}
                           className="px-4 py-1.5 rounded-full text-xs shadow-md cursor-pointer transition-all duration-100"

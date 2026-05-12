@@ -202,7 +202,7 @@
   transform-origin: calc(50% - 200px) calc(50% + 200px);
 }
 
-/* Name highlight - text selection/drag style with brackets */
+/* Name highlight - text selection/drag style */
 .name-highlight {
   display: inline;
   background: rgba(200, 190, 175, 0.4);
@@ -210,26 +210,6 @@
   border-radius: 0;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
-}
-
-.name-highlight::before,
-.name-highlight::after {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.1em;
-  font-weight: 300;
-  color: rgba(100, 140, 255, 0.6);
-}
-
-.name-highlight::before {
-  content: "[";
-  left: -0.35em;
-}
-
-.name-highlight::after {
-  content: "]";
-  right: -0.35em;
 }
 
 /* Gradient border for special buttons */
