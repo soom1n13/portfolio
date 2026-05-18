@@ -25,17 +25,17 @@
   --ring: #5c6bc0;
   --radius: 0.75rem;
 
-  /* Gradient colors - warm earth tones */
-  --gradient-background-start: #faf9f7;
-  --gradient-background-end: #f5f3ef;
-  --first-color: 220, 180, 140;
-  --second-color: 210, 185, 165;
-  --third-color: 230, 185, 150;
-  --fourth-color: 195, 200, 165;
-  --fifth-color: 215, 175, 145;
-  --pointer-color: 200, 165, 130;
+  /* Gradient colors - pink & blue (original-inspired) */
+  --gradient-background-start: #fcfcff;
+  --gradient-background-end: #f5f7ff;
+  --first-color: 255, 180, 210;
+  --second-color: 170, 200, 255;
+  --third-color: 245, 175, 215;
+  --fourth-color: 180, 210, 255;
+  --fifth-color: 220, 180, 245;
+  --pointer-color: 200, 195, 255;
   --size: 80%;
-  --blending-value: multiply;
+  --blending-value: screen;
 }
 
 .dark {
@@ -162,7 +162,7 @@
 }
 
 .gradient-circle-1 {
-  background: radial-gradient(circle at center, rgba(var(--first-color), 0.4), rgba(var(--first-color), 0) 50%);
+  background: radial-gradient(circle at center, rgba(var(--first-color), 0.35), rgba(var(--first-color), 0) 50%);
   top: calc(50% - var(--size) / 2);
   left: calc(50% - var(--size) / 2);
   animation: moveVertical 30s ease infinite;
@@ -170,7 +170,7 @@
 }
 
 .gradient-circle-2 {
-  background: radial-gradient(circle at center, rgba(var(--second-color), 0.4), rgba(var(--second-color), 0) 50%);
+  background: radial-gradient(circle at center, rgba(var(--second-color), 0.35), rgba(var(--second-color), 0) 50%);
   top: calc(50% - var(--size) / 2);
   left: calc(50% - var(--size) / 2);
   animation: moveInCircle 20s reverse infinite;
@@ -179,7 +179,7 @@
 }
 
 .gradient-circle-3 {
-  background: radial-gradient(circle at center, rgba(var(--third-color), 0.4), rgba(var(--third-color), 0) 50%);
+  background: radial-gradient(circle at center, rgba(var(--third-color), 0.35), rgba(var(--third-color), 0) 50%);
   top: calc(50% - var(--size) / 2 + 200px);
   left: calc(50% - var(--size) / 2 - 500px);
   animation: moveInCircle 40s linear infinite;
@@ -188,7 +188,7 @@
 }
 
 .gradient-circle-4 {
-  background: radial-gradient(circle at center, rgba(var(--fourth-color), 0.4), rgba(var(--fourth-color), 0) 50%);
+  background: radial-gradient(circle at center, rgba(var(--fourth-color), 0.35), rgba(var(--fourth-color), 0) 50%);
   top: calc(50% - var(--size) / 2);
   left: calc(50% - var(--size) / 2);
   animation: moveHorizontal 40s ease infinite;
@@ -197,7 +197,7 @@
 }
 
 .gradient-circle-5 {
-  background: radial-gradient(circle at center, rgba(var(--fifth-color), 0.4), rgba(var(--fifth-color), 0) 50%);
+  background: radial-gradient(circle at center, rgba(var(--fifth-color), 0.35), rgba(var(--fifth-color), 0) 50%);
   width: calc(var(--size) * 2);
   height: calc(var(--size) * 2);
   top: calc(50% - var(--size));
