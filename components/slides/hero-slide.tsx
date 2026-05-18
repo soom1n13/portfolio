@@ -342,13 +342,13 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                           <img
                             src={(item as any).thumbnail}
                             alt=""
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-left-top"
                           />
                         ) : (item as any).youtubeId ? (
                           <img
                             src={`https://i.ytimg.com/vi/${(item as any).youtubeId}/mqdefault.jpg`}
                             alt=""
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover object-left-top"
                           />
                         ) : (
                           <Play className="w-4 h-4 text-foreground/30 fill-foreground/20" />
@@ -444,7 +444,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
             >
               <div className="flex-shrink-0 mt-2">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-lg">
-                  <Image src="/profile.jpg" alt="이수민 프로필" width={48} height={48} className="w-full h-full object-cover" />
+                  <Image src="/profile.jpg" alt="이수민 프로필" width={48} height={48} className="w-full h-full object-cover object-left-top" />
                 </div>
               </div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-sans font-bold leading-snug text-foreground tracking-tight">
@@ -520,7 +520,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 relative">
                       <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-white shadow-md">
-                        <Image src="/profile.jpg" alt="이수민" width={36} height={36} className="w-full h-full object-cover" />
+                        <Image src="/profile.jpg" alt="이수민" width={36} height={36} className="w-full h-full object-cover object-left-top" />
                       </div>
                       <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-white" />
                     </div>
