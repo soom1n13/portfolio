@@ -60,9 +60,9 @@ const designData = [
   {
     id: "molru",
     title: "몰라도 되는 계산, 몰루",
-    subtitle: "Global Startup Challenge · UXUI 디자인 및 IR Deck",
+    subtitle: "Global Startup Challenge · UXUI 디자인",
     type: "team",
-    contribution: "UXUI 디자인 · IR Deck",
+    contribution: "UXUI 디자인",
     tools: ["Figma"],
     link: "https://drive.google.com/file/d/1ttW8uzZdNOBc8xImJ-NV_saZ4mn7PJXx/view",
     thumbnail: "/molru-thumb.jpg",
