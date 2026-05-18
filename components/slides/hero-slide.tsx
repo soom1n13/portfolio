@@ -314,10 +314,13 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                       <ProjectCard item={item} />
                     </motion.div>
                   ) : (
-                    <motion.button
+                    <motion.div
                       key="collapsed"
+                      role="button"
+                      tabIndex={0}
                       onClick={() => setExpandedItem(item.id)}
-                      className="w-full flex items-center gap-3 bg-white/85 rounded-2xl p-3 shadow-sm hover:bg-white hover:shadow-md transition-all text-left"
+                      onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setExpandedItem(item.id) } }}
+                      className="w-full flex items-center gap-3 bg-white/85 rounded-2xl p-3 shadow-sm hover:bg-white hover:shadow-md transition-all text-left cursor-pointer"
                     >
                       <div className={`w-24 h-16 rounded-xl overflow-hidden flex-shrink-0 ${placeholderGradients[i % placeholderGradients.length]} flex items-center justify-center`}>
                         {(item as any).thumbnail ? (
@@ -340,10 +343,17 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                         <p className="text-sm font-semibold text-foreground/85 truncate">{item.title}</p>
                         <p className="text-xs text-foreground/40 truncate mt-0.5">{item.subtitle}</p>
                       </div>
-                      <div className="w-8 h-8 rounded-full border border-foreground/15 flex items-center justify-center flex-shrink-0">
+                      <a
+                        href={item.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        aria-label="영상 바로 열기"
+                        className="w-8 h-8 rounded-full border border-foreground/15 flex items-center justify-center flex-shrink-0 hover:bg-foreground/5 transition-colors"
+                      >
                         <ArrowRight className="w-3.5 h-3.5 text-foreground/40" />
-                      </div>
-                    </motion.button>
+                      </a>
+                    </motion.div>
                   )}
                 </AnimatePresence>
               </motion.div>
