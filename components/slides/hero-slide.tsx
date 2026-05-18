@@ -309,9 +309,9 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                     <motion.button
                       key="collapsed"
                       onClick={() => setExpandedItem(item.id)}
-                      className="w-full flex items-center gap-2.5 bg-white/85 rounded-xl p-1.5 shadow-sm hover:bg-white hover:shadow-md transition-all text-left"
+                      className="w-full flex items-center gap-3 bg-white/85 rounded-2xl p-3 shadow-sm hover:bg-white hover:shadow-md transition-all text-left"
                     >
-                      <div className={`w-20 h-11 rounded-lg overflow-hidden flex-shrink-0 ${placeholderGradients[i % placeholderGradients.length]} flex items-center justify-center`}>
+                      <div className={`w-24 h-16 rounded-xl overflow-hidden flex-shrink-0 ${placeholderGradients[i % placeholderGradients.length]} flex items-center justify-center`}>
                         {(item as any).thumbnail ? (
                           <img
                             src={(item as any).thumbnail}
@@ -329,11 +329,11 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                         )}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <p className="text-xs font-semibold text-foreground/85 truncate">{item.title}</p>
-                        <p className="text-[11px] text-foreground/40 truncate">{item.subtitle}</p>
+                        <p className="text-sm font-semibold text-foreground/85 truncate">{item.title}</p>
+                        <p className="text-xs text-foreground/40 truncate mt-0.5">{item.subtitle}</p>
                       </div>
-                      <div className="w-6 h-6 rounded-full border border-foreground/15 flex items-center justify-center flex-shrink-0">
-                        <ArrowRight className="w-3 h-3 text-foreground/40" />
+                      <div className="w-8 h-8 rounded-full border border-foreground/15 flex items-center justify-center flex-shrink-0">
+                        <ArrowRight className="w-3.5 h-3.5 text-foreground/40" />
                       </div>
                     </motion.button>
                   )}
@@ -416,7 +416,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
             </motion.div>
 
             {chatHistory.length > 0 && (
-              <div className="space-y-1 mb-3">
+              <div className="space-y-1.5 mb-5">
                 {chatHistory.map((msg, i) => (
                   <motion.div
                     key={i}
@@ -470,8 +470,8 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                   transition={{ duration: 0.4 }}
                   className="mb-5"
                 >
-                  <div className="flex justify-end mb-2">
-                    <span className="px-3 py-1 bg-foreground/80 text-background rounded-full text-xs font-semibold">
+                  <div className="flex justify-end mb-4">
+                    <span className="px-4 py-2 bg-foreground text-background rounded-2xl text-sm font-medium shadow-sm">
                       {suggestionTags.find(t => t.id === activeTag)?.label}
                     </span>
                   </div>
