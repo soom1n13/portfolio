@@ -309,9 +309,9 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                     <motion.button
                       key="collapsed"
                       onClick={() => setExpandedItem(item.id)}
-                      className="w-full flex items-center gap-3 bg-white/85 rounded-2xl p-2.5 shadow-sm hover:bg-white hover:shadow-md transition-all text-left"
+                      className="w-full flex items-center gap-2.5 bg-white/85 rounded-xl p-1.5 shadow-sm hover:bg-white hover:shadow-md transition-all text-left"
                     >
-                      <div className={`w-24 h-14 rounded-xl overflow-hidden flex-shrink-0 ${placeholderGradients[i % placeholderGradients.length]} flex items-center justify-center`}>
+                      <div className={`w-20 h-11 rounded-lg overflow-hidden flex-shrink-0 ${placeholderGradients[i % placeholderGradients.length]} flex items-center justify-center`}>
                         {(item as any).thumbnail ? (
                           <img
                             src={(item as any).thumbnail}
@@ -332,7 +332,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                         <p className="text-xs font-semibold text-foreground/85 truncate">{item.title}</p>
                         <p className="text-[11px] text-foreground/40 truncate">{item.subtitle}</p>
                       </div>
-                      <div className="w-7 h-7 rounded-full border border-foreground/15 flex items-center justify-center flex-shrink-0">
+                      <div className="w-6 h-6 rounded-full border border-foreground/15 flex items-center justify-center flex-shrink-0">
                         <ArrowRight className="w-3 h-3 text-foreground/40" />
                       </div>
                     </motion.button>
