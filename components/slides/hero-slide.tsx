@@ -88,9 +88,9 @@ const designData = [
     type: "solo",
     contribution: "디자인 100%",
     tools: ["Figma"],
-    link: "https://www.instagram.com/p/DWAdJomklxp/",
+    link: "https://gdg.community.dev/events/details/google-gdg-on-campus-ewha-womans-university-seoul-south-korea-presents-pureum-blooming/",
     thumbnail: "/gdgoc-poster-thumb.jpg",
-    linkLabel: "인스타그램 보기",
+    linkLabel: "이벤트 페이지 보기",
     isYoutube: false,
   },
 ]
