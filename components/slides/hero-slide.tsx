@@ -46,6 +46,18 @@ const experienceData = [
 
 const designData = [
   {
+    id: "nenep",
+    title: "네넵 - 직장 언어 톤 변환 AI 비서",
+    subtitle: "팀 프로젝트 · UI/UX 디자인",
+    type: "team",
+    contribution: "UI/UX 디자인",
+    tools: ["Figma"],
+    link: "https://drive.google.com/file/d/1kVYYvgHH08idquYuHW234megrbPQHZL7/view?usp=sharing",
+    thumbnail: "/nenep-thumb.jpg",
+    linkLabel: "기획서 보기",
+    isYoutube: false,
+  },
+  {
     id: "ui-project",
     title: "정산 서비스 UI/UX 프로젝트",
     subtitle: "글로벌 스타트업 챌린지",
