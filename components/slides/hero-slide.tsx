@@ -322,23 +322,37 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setExpandedItem(item.id) } }}
                       className="w-full flex items-center gap-3 bg-white/85 rounded-2xl p-3 shadow-sm hover:bg-white hover:shadow-md transition-all text-left cursor-pointer"
                     >
-                      <div className={`w-24 h-16 rounded-xl overflow-hidden flex-shrink-0 ${placeholderGradients[i % placeholderGradients.length]} flex items-center justify-center`}>
-                        {(item as any).thumbnail ? (
-                          <img
-                            src={(item as any).thumbnail}
-                            alt=""
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (item as any).youtubeId ? (
-                          <img
-                            src={`https://i.ytimg.com/vi/${(item as any).youtubeId}/mqdefault.jpg`}
-                            alt=""
-                            className="w-full h-full object-cover"
-                          />
-                        ) : (
-                          <Play className="w-4 h-4 text-foreground/30 fill-foreground/20" />
-                        )}
-                      </div>
+                      {(() => {
+                        const hasImage = !!((item as any).thumbnail || (item as any).youtubeId)
+                        return (
+                          <div
+                            className={`relative w-24 h-16 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center ${hasImage ? "" : placeholderGradients[i % placeholderGradients.length]}`}
+                            style={hasImage ? { background: "linear-gradient(90deg, #1f1f1f 0%, #000 35%, #000 65%, #1f1f1f 100%)" } : undefined}
+                          >
+                            {(item as any).thumbnail ? (
+                              <img
+                                src={(item as any).thumbnail}
+                                alt=""
+                                className="w-full h-full object-contain"
+                              />
+                            ) : (item as any).youtubeId ? (
+                              <img
+                                src={`https://i.ytimg.com/vi/${(item as any).youtubeId}/mqdefault.jpg`}
+                                alt=""
+                                className="w-full h-full object-contain"
+                              />
+                            ) : (
+                              <Play className="w-4 h-4 text-foreground/30 fill-foreground/20" />
+                            )}
+                            {hasImage && (
+                              <span className="pointer-events-none absolute inset-y-0 left-0 w-2 bg-gradient-to-r from-white/10 to-transparent" />
+                            )}
+                            {hasImage && (
+                              <span className="pointer-events-none absolute inset-y-0 right-0 w-2 bg-gradient-to-l from-white/10 to-transparent" />
+                            )}
+                          </div>
+                        )
+                      })()}
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-semibold text-foreground/85 truncate">{item.title}</p>
                         <p className="text-xs text-foreground/40 truncate mt-0.5">{item.subtitle}</p>
