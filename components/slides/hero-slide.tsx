@@ -82,16 +82,14 @@ const designData = [
     isYoutube: false,
   },
   {
-    id: "gdgoc-poster",
-    title: "GDGoC 행사 포스터 디자인",
+    id: "gdgoc-banner",
+    title: "GDGoC 행사 배너 디자인",
     subtitle: "GDG on Campus Soongsil",
     type: "solo",
     contribution: "디자인 100%",
     tools: ["Figma"],
     link: "https://gdg.community.dev/events/details/google-gdg-on-campus-ewha-womans-university-seoul-south-korea-presents-pureum-blooming/",
     thumbnail: "/gdgoc-poster-thumb.jpg",
-    thumbnailMode: "contain",
-    thumbnailBg: "#b8c89e",
     linkLabel: "이벤트 페이지 보기",
     isYoutube: false,
   },
@@ -347,7 +345,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                           <img
                             src={(item as any).thumbnail}
                             alt=""
-                            className={`w-full h-full ${(item as any).thumbnailMode === "contain" ? "object-contain" : "object-cover object-left-top"}`}
+                            className={`w-full h-full ${(item as any).thumbnailMode === "contain" ? "object-contain" : (item as any).thumbnailMode === "center" ? "object-cover" : "object-cover object-left-top"}`}
                           />
                         ) : (item as any).youtubeId ? (
                           <img
