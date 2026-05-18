@@ -66,6 +66,7 @@ const designData = [
     tools: ["Figma"],
     link: "https://drive.google.com/file/d/1ttW8uzZdNOBc8xImJ-NV_saZ4mn7PJXx/view",
     thumbnail: "/molru-thumb.jpg",
+    thumbnailMode: "center",
     linkLabel: "데모 영상 보기",
     isYoutube: false,
   },
@@ -83,7 +84,7 @@ const designData = [
   },
   {
     id: "gdgoc-banner",
-    title: "GDGoC 행사 배너 디자인",
+    title: "GDGoC 행사 비주얼 디자인",
     subtitle: "GDG on Campus Soongsil",
     type: "solo",
     contribution: "디자인 100%",
@@ -117,6 +118,7 @@ const contentsData = [
     tools: ["Premiere Pro"],
     link: "https://www.youtube.com/watch?v=DPicHe0IJfc",
     youtubeId: "DPicHe0IJfc",
+    thumbnailMode: "center",
     isYoutube: true,
     linkLabel: "유튜브 보기",
   },
@@ -129,6 +131,7 @@ const contentsData = [
     tools: ["Premiere Pro"],
     link: "https://youtube.com/shorts/cG9uxT50qSU",
     youtubeId: "cG9uxT50qSU",
+    thumbnailMode: "center",
     isYoutube: true,
     linkLabel: "유튜브 보기",
   },
@@ -351,7 +354,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                           <img
                             src={`https://i.ytimg.com/vi/${(item as any).youtubeId}/mqdefault.jpg`}
                             alt=""
-                            className="w-full h-full object-cover object-left-top"
+                            className={`w-full h-full ${(item as any).thumbnailMode === "center" ? "object-cover" : "object-cover object-left-top"}`}
                           />
                         ) : (
                           <Play className="w-4 h-4 text-foreground/30 fill-foreground/20" />
@@ -447,7 +450,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
             >
               <div className="flex-shrink-0 mt-2">
                 <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-lg">
-                  <Image src="/profile.jpg" alt="이수민 프로필" width={48} height={48} className="w-full h-full object-cover object-left-top" />
+                  <Image src="/profile.jpg" alt="이수민 프로필" width={48} height={48} className="w-full h-full object-cover" />
                 </div>
               </div>
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-sans font-bold leading-snug text-foreground tracking-tight">
@@ -523,7 +526,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                   <div className="flex items-start gap-3">
                     <div className="flex-shrink-0 relative">
                       <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-white shadow-md">
-                        <Image src="/profile.jpg" alt="이수민" width={36} height={36} className="w-full h-full object-cover object-left-top" />
+                        <Image src="/profile.jpg" alt="이수민" width={36} height={36} className="w-full h-full object-cover" />
                       </div>
                       <div className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 rounded-full border-2 border-white" />
                     </div>
