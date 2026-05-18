@@ -25,15 +25,15 @@
   --ring: #5c6bc0;
   --radius: 0.75rem;
 
-  /* Gradient colors - green/연두 palette */
-  --gradient-background-start: #f7faf4;
-  --gradient-background-end: #eef5e8;
-  --first-color: 180, 220, 140;
-  --second-color: 150, 200, 130;
-  --third-color: 200, 230, 160;
-  --fourth-color: 130, 190, 150;
-  --fifth-color: 170, 215, 120;
-  --pointer-color: 140, 200, 110;
+  /* Gradient colors - warm earth tones */
+  --gradient-background-start: #faf9f7;
+  --gradient-background-end: #f5f3ef;
+  --first-color: 220, 180, 140;
+  --second-color: 200, 175, 200;
+  --third-color: 230, 185, 150;
+  --fourth-color: 195, 200, 165;
+  --fifth-color: 215, 175, 145;
+  --pointer-color: 200, 165, 130;
   --size: 80%;
   --blending-value: multiply;
 }
