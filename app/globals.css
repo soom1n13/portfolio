@@ -162,7 +162,7 @@
 }
 
 .gradient-circle-1 {
-  background: radial-gradient(circle at center, rgba(var(--first-color), 0.5), rgba(var(--first-color), 0) 50%);
+  background: radial-gradient(circle at center, rgba(var(--first-color), 0.3), rgba(var(--first-color), 0) 50%);
   top: calc(50% - var(--size) / 2);
   left: calc(50% - var(--size) / 2);
   animation: moveVertical 30s ease infinite;
@@ -170,7 +170,7 @@
 }
 
 .gradient-circle-2 {
-  background: radial-gradient(circle at center, rgba(var(--second-color), 0.5), rgba(var(--second-color), 0) 50%);
+  background: radial-gradient(circle at center, rgba(var(--second-color), 0.3), rgba(var(--second-color), 0) 50%);
   top: calc(50% - var(--size) / 2);
   left: calc(50% - var(--size) / 2);
   animation: moveInCircle 20s reverse infinite;
@@ -179,7 +179,7 @@
 }
 
 .gradient-circle-3 {
-  background: radial-gradient(circle at center, rgba(var(--third-color), 0.5), rgba(var(--third-color), 0) 50%);
+  background: radial-gradient(circle at center, rgba(var(--third-color), 0.3), rgba(var(--third-color), 0) 50%);
   top: calc(50% - var(--size) / 2 + 200px);
   left: calc(50% - var(--size) / 2 - 500px);
   animation: moveInCircle 40s linear infinite;
@@ -188,16 +188,16 @@
 }
 
 .gradient-circle-4 {
-  background: radial-gradient(circle at center, rgba(var(--fourth-color), 0.5), rgba(var(--fourth-color), 0) 50%);
+  background: radial-gradient(circle at center, rgba(var(--fourth-color), 0.3), rgba(var(--fourth-color), 0) 50%);
   top: calc(50% - var(--size) / 2);
   left: calc(50% - var(--size) / 2);
   animation: moveHorizontal 40s ease infinite;
   animation-delay: -20s;
-  opacity: 0.6;
+  opacity: 0.4;
 }
 
 .gradient-circle-5 {
-  background: radial-gradient(circle at center, rgba(var(--fifth-color), 0.5), rgba(var(--fifth-color), 0) 50%);
+  background: radial-gradient(circle at center, rgba(var(--fifth-color), 0.3), rgba(var(--fifth-color), 0) 50%);
   width: calc(var(--size) * 2);
   height: calc(var(--size) * 2);
   top: calc(50% - var(--size));
