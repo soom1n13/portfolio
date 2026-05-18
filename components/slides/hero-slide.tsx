@@ -82,6 +82,18 @@ const designData = [
 
 const contentsData = [
   {
+    id: "news-desk-straw",
+    title: "[뉴스데스크] 오락가락 환경 정책... 다시 등장한 플라스틱 빨대",
+    subtitle: "숭실대학교 방송국 SSBS",
+    type: "solo",
+    contribution: "취재 · 편집 · 보도 100%",
+    tools: ["Premiere Pro"],
+    link: "https://drive.google.com/file/d/1mWj1KrjXTWCydZCNkWh40beFNKkYPMLj/view?usp=sharing",
+    thumbnail: "/news-desk-thumb.jpg",
+    isYoutube: false,
+    linkLabel: "영상 보기",
+  },
+  {
     id: "event-sketch",
     title: "[2025 SSBS 방송제 스케치 영상]",
     subtitle: "숭실대학교 방송국 SSBS",
@@ -300,7 +312,13 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                       className="w-full flex items-center gap-3 bg-white/85 rounded-2xl p-2.5 shadow-sm hover:bg-white hover:shadow-md transition-all text-left"
                     >
                       <div className={`w-24 h-14 rounded-xl overflow-hidden flex-shrink-0 ${placeholderGradients[i % placeholderGradients.length]} flex items-center justify-center`}>
-                        {(item as any).youtubeId ? (
+                        {(item as any).thumbnail ? (
+                          <img
+                            src={(item as any).thumbnail}
+                            alt=""
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (item as any).youtubeId ? (
                           <img
                             src={`https://i.ytimg.com/vi/${(item as any).youtubeId}/mqdefault.jpg`}
                             alt=""
