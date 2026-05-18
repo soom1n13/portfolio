@@ -25,15 +25,15 @@
   --ring: #5c6bc0;
   --radius: 0.75rem;
 
-  /* Gradient colors - warm earth tones */
+  /* Gradient colors - warm earth tones, varied */
   --gradient-background-start: #faf9f7;
   --gradient-background-end: #f5f3ef;
-  --first-color: 220, 180, 140;
-  --second-color: 210, 185, 165;
-  --third-color: 230, 185, 150;
-  --fourth-color: 195, 200, 165;
-  --fifth-color: 215, 175, 145;
-  --pointer-color: 200, 165, 130;
+  --first-color: 235, 175, 175;
+  --second-color: 240, 200, 160;
+  --third-color: 235, 205, 145;
+  --fourth-color: 200, 215, 185;
+  --fifth-color: 215, 165, 140;
+  --pointer-color: 220, 175, 165;
   --size: 80%;
   --blending-value: multiply;
 }
