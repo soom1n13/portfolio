@@ -90,6 +90,7 @@ const designData = [
     tools: ["Figma"],
     link: "https://gdg.community.dev/events/details/google-gdg-on-campus-ewha-womans-university-seoul-south-korea-presents-pureum-blooming/",
     thumbnail: "/gdgoc-poster-thumb.jpg",
+    thumbnailMode: "contain",
     linkLabel: "이벤트 페이지 보기",
     isYoutube: false,
   },
@@ -342,7 +343,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                           <img
                             src={(item as any).thumbnail}
                             alt=""
-                            className="w-full h-full object-cover object-left-top"
+                            className={`w-full h-full ${(item as any).thumbnailMode === "contain" ? "object-contain" : "object-cover object-left-top"}`}
                           />
                         ) : (item as any).youtubeId ? (
                           <img
