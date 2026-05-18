@@ -83,7 +83,7 @@ const designData = [
 const contentsData = [
   {
     id: "event-sketch",
-    title: "행사 스케치 영상",
+    title: "[2025 SSBS 방송제 스케치 영상]",
     subtitle: "숭실대학교 방송국 SSBS",
     type: "solo",
     contribution: "기획 · 촬영 · 편집 100%",
@@ -95,7 +95,7 @@ const contentsData = [
   },
   {
     id: "ktwiz-shorts",
-    title: "개막 열기 숏폼",
+    title: "[홈개막] 설레는 만큼 힘차게 손 흔들어주세요!",
     subtitle: "KT wiz 대학생 리포터",
     type: "team",
     contribution: "촬영 · 편집",
@@ -107,7 +107,7 @@ const contentsData = [
   },
   {
     id: "class-reel",
-    title: "강의소개 릴스",
+    title: "오늘 숭대생이 듣는 수업은?",
     subtitle: "숭실대학교 방송국 SSBS",
     type: "team",
     contribution: "기획 · 편집",
@@ -299,7 +299,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                       onClick={() => setExpandedItem(item.id)}
                       className="w-full flex items-center gap-3 bg-white/85 rounded-2xl p-2.5 shadow-sm hover:bg-white hover:shadow-md transition-all text-left"
                     >
-                      <div className={`w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 ${placeholderGradients[i % placeholderGradients.length]} flex items-center justify-center`}>
+                      <div className={`w-24 h-14 rounded-xl overflow-hidden flex-shrink-0 ${placeholderGradients[i % placeholderGradients.length]} flex items-center justify-center`}>
                         {(item as any).youtubeId ? (
                           <img
                             src={`https://i.ytimg.com/vi/${(item as any).youtubeId}/mqdefault.jpg`}
