@@ -368,24 +368,24 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
   const getButtonStyle = (tagId: string, isActive: boolean) => {
   if (tagId === "tools") {
     return {
-      background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #b8a988, #d7cdbe) border-box",
+      background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #ebafaf, #f0c8a0) border-box",
       border: "2px solid transparent",
-      color: isActive ? "#8a7654" : "rgba(0,0,0,0.6)",
+      color: isActive ? "#a87858" : "rgba(0,0,0,0.6)",
       fontWeight: 600,
     }
   }
   if (tagId === "experience") {
     return {
-      background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #a89876, #c8b89a) border-box",
+      background: "linear-gradient(white, white) padding-box, linear-gradient(135deg, #c8d7b9, #d7a58c) border-box",
       border: "2px solid transparent",
-      color: isActive ? "#7a6644" : "rgba(0,0,0,0.6)",
+      color: isActive ? "#7a8a5c" : "rgba(0,0,0,0.6)",
       fontWeight: 600,
     }
   }
   return {
     background: "rgba(255,255,255,0.85)",
-    border: isActive ? "2px solid rgba(184, 169, 136, 0.6)" : "2px solid rgba(0,0,0,0.1)",
-    color: isActive ? "#8a7654" : "rgba(0,0,0,0.6)",
+    border: isActive ? "2px solid rgba(215, 165, 140, 0.6)" : "2px solid rgba(0,0,0,0.1)",
+    color: isActive ? "#a87858" : "rgba(0,0,0,0.6)",
   }
 }
 
