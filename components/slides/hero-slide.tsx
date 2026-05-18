@@ -385,8 +385,8 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
   if (tagId === "design" || tagId === "contents") {
     return {
       background: "rgba(255,255,255,0.85)",
-      border: "2px solid #c8d7b9",
-      color: isActive ? "#7a8a5c" : "rgba(0,0,0,0.6)",
+      border: "2px solid #e8dcc4",
+      color: isActive ? "#a8916a" : "rgba(0,0,0,0.6)",
       fontWeight: 600,
     }
   }
