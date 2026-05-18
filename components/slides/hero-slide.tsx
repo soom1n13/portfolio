@@ -75,7 +75,7 @@ const designData = [
     subtitle: "KT wiz 대학생 리포터",
     type: "solo",
     contribution: "디자인 100%",
-    tools: ["Photoshop"],
+    tools: ["Figma"],
     link: "http://youtube.com/post/UgkxlmVCjTS2bnyMGkyGW5U0VKK_HfTfCdy_?si=vf8pP2I-kqV85Xh3",
     linkLabel: "유튜브 포스트 보기",
     isYoutube: false,
