@@ -286,7 +286,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
           <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm mb-2">
             {tagId === "design" ? "디자인 작업물이에요." : "영상 콘텐츠예요."}
           </p>
-          <div className="space-y-2 max-h-[40dvh] overflow-y-auto pr-10 pb-2">
+          <div className="space-y-2 pr-20">
             {items.map((item, i) => (
               <motion.div
                 key={item.id}
@@ -375,16 +375,16 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
     <section
       id="slide-1"
       data-slide-index="1"
-      className="snap-start relative h-[100dvh] w-full overflow-hidden bg-background text-foreground"
+      className="snap-start relative min-h-[100dvh] w-full bg-background text-foreground"
     >
       <motion.div
         initial={{ opacity: 0, filter: "blur(10px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 h-full w-full"
+        className="relative z-10 min-h-[100dvh] w-full"
       >
         <GradientBackground />
-        <div className="relative z-10 flex flex-col items-center justify-center h-full px-8 md:px-12 lg:px-16">
+        <div className="relative z-10 flex flex-col items-center justify-center min-h-[100dvh] px-8 md:px-12 lg:px-16 py-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
