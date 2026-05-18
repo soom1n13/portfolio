@@ -144,6 +144,7 @@ const contentsData = [
     tools: ["Premiere Pro"],
     link: "https://www.instagram.com/reel/DSy7aSrkrSS/",
     thumbnail: "/class-reel-thumb.jpg",
+    thumbnailMode: "center",
     linkLabel: "인스타그램 보기",
     isYoutube: false,
   },
