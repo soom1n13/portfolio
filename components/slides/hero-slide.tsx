@@ -91,6 +91,7 @@ const designData = [
     link: "https://gdg.community.dev/events/details/google-gdg-on-campus-ewha-womans-university-seoul-south-korea-presents-pureum-blooming/",
     thumbnail: "/gdgoc-poster-thumb.jpg",
     thumbnailMode: "contain",
+    thumbnailBg: "#b8c89e",
     linkLabel: "이벤트 페이지 보기",
     isYoutube: false,
   },
@@ -338,7 +339,10 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
                       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setExpandedItem(item.id) } }}
                       className="w-full flex items-center gap-3 bg-white/85 rounded-2xl p-3 shadow-sm hover:bg-white hover:shadow-md transition-all text-left cursor-pointer"
                     >
-                      <div className={`w-24 h-16 rounded-xl overflow-hidden flex-shrink-0 ${placeholderGradients[i % placeholderGradients.length]} flex items-center justify-center`}>
+                      <div
+                        className={`w-24 h-16 rounded-xl overflow-hidden flex-shrink-0 flex items-center justify-center ${(item as any).thumbnailBg ? "" : placeholderGradients[i % placeholderGradients.length]}`}
+                        style={(item as any).thumbnailBg ? { backgroundColor: (item as any).thumbnailBg } : undefined}
+                      >
                         {(item as any).thumbnail ? (
                           <img
                             src={(item as any).thumbnail}
