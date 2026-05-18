@@ -125,6 +125,7 @@ const contentsData = [
     contribution: "기획 · 편집",
     tools: ["Premiere Pro"],
     link: "https://www.instagram.com/reel/DSy7aSrkrSS/",
+    thumbnail: "/class-reel-thumb.jpg",
     linkLabel: "인스타그램 보기",
     isYoutube: false,
   },
