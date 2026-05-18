@@ -83,8 +83,8 @@ const designData = [
 const contentsData = [
   {
     id: "news-desk-straw",
-    title: "[뉴스데스크] 오락가락 환경 정책... 다시 등장한 플라스틱 빨대",
-    subtitle: "숭실대학교 방송국 SSBS",
+    title: "오락가락 환경 정책... 다시 등장한 플라스틱 빨대",
+    subtitle: "숭실대학교 방송국 SSBS · 뉴스데스크",
     type: "solo",
     contribution: "취재 · 편집 · 보도 100%",
     tools: ["Premiere Pro"],
@@ -255,7 +255,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
           <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm mb-2">
             지금까지의 활동이에요.
           </p>
-          <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1 pb-2">
+          <div className="space-y-1.5 max-h-[40dvh] overflow-y-auto pr-10 pb-2">
             {experienceData.map((exp, i) => (
               <motion.div
                 key={exp.name}
@@ -286,7 +286,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
           <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm mb-2">
             {tagId === "design" ? "디자인 작업물이에요." : "영상 콘텐츠예요."}
           </p>
-          <div className="space-y-2">
+          <div className="space-y-2 max-h-[40dvh] overflow-y-auto pr-10 pb-2">
             {items.map((item, i) => (
               <motion.div
                 key={item.id}
