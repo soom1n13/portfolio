@@ -25,17 +25,17 @@
   --ring: #5c6bc0;
   --radius: 0.75rem;
 
-  /* Gradient colors - warm white with soft warm tones */
+  /* Gradient colors - warm earth tones with visible interaction */
   --gradient-background-start: #faf9f7;
   --gradient-background-end: #f5f3ef;
-  --first-color: 230, 220, 210;
-  --second-color: 220, 215, 200;
-  --third-color: 235, 225, 215;
-  --fourth-color: 225, 218, 205;
-  --fifth-color: 232, 222, 212;
-  --pointer-color: 215, 205, 190;
+  --first-color: 220, 180, 140;
+  --second-color: 200, 175, 200;
+  --third-color: 230, 185, 150;
+  --fourth-color: 195, 200, 165;
+  --fifth-color: 215, 175, 145;
+  --pointer-color: 200, 165, 130;
   --size: 80%;
-  --blending-value: screen;
+  --blending-value: multiply;
 }
 
 .dark {

@@ -26,15 +26,15 @@ const toolsData = [
 ]
 
 const experienceData = [
-  { name: "제 20, 21대 숭실대학교 글로벌미디어학부 학생회 기획국", period: "2023.04 – 2024.06", award: false },
-  { name: "숭실대학교 방송국 SSBS 58기 보도부", period: "2025.03 – 2026.01", award: false },
-  { name: "KT 대학생 IT 서포터즈 3기", period: "2025.06 – 2025.09", award: true, awardText: "우수팀" },
-  { name: "숭실대학교 해외 공학봉사단 SSUVEE 11기", period: "2025.06 – 2025.08", award: true, awardText: "은상" },
-  { name: "GDG on Campus Soongsil University - Team member(Design)", period: "2025.09 – 현재", award: false },
-  { name: "Global Startup Challenge 3기 (시드니)", period: "2025.12 – 2026.01", award: true, awardText: "Startup Pitching Winner" },
-  { name: "숭실대학교 국제 홍보대사 SIA 34기 홍보팀", period: "2026.01 – 현재", award: false },
-  { name: "kt wiz 대학생 리포터 위즈포터 10기", period: "2026.03 – 현재", award: false },
   { name: "멋쟁이사자처럼 14기 디자인 파트", period: "2026.03 – 현재", award: false },
+  { name: "kt wiz 대학생 리포터 위즈포터 10기", period: "2026.03 – 현재", award: false },
+  { name: "숭실대학교 국제 홍보대사 SIA 34기 홍보팀", period: "2026.01 – 현재", award: false },
+  { name: "Global Startup Challenge 3기 (시드니)", period: "2025.12 – 2026.01", award: true, awardText: "Startup Pitching Winner" },
+  { name: "GDG on Campus Soongsil University - Team member(Design)", period: "2025.09 – 현재", award: false },
+  { name: "숭실대학교 해외 공학봉사단 SSUVEE 11기", period: "2025.06 – 2025.08", award: true, awardText: "은상" },
+  { name: "KT 대학생 IT 서포터즈 3기", period: "2025.06 – 2025.09", award: true, awardText: "우수팀" },
+  { name: "숭실대학교 방송국 SSBS 58기 보도부", period: "2025.03 – 2026.01", award: false },
+  { name: "제 20, 21대 숭실대학교 글로벌미디어학부 학생회 기획국", period: "2023.04 – 2024.06", award: false },
 ]
 
 const designData = [
@@ -236,7 +236,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
           <p className="text-xs font-medium text-foreground/70 bg-white/80 rounded-2xl py-2 px-3.5 w-fit shadow-sm mb-2">
             지금까지의 활동이에요.
           </p>
-          <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">
+          <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1 pb-2">
             {experienceData.map((exp, i) => (
               <motion.div
                 key={exp.name}
