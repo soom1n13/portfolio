@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { GradientBackground } from "@/components/gradient-background"
 import { ArrowRight, ExternalLink, Play } from "lucide-react"
@@ -192,6 +192,13 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [expandedItem, setExpandedItem] = useState<string | null>(null)
   const [chatHistory, setChatHistory] = useState<ChatMessage[]>([])
+  const responseRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (activeTag && responseRef.current) {
+      responseRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" })
+    }
+  }, [activeTag, showResponse])
 
   const handleTagClick = (tagId: string, tagLabel: string) => {
     if (activeTag === tagId) {
@@ -464,6 +471,7 @@ export function HeroSlide({ onScrollNext }: HeroSlideProps) {
               {activeTag && (
                 <motion.div
                   key={activeTag}
+                  ref={responseRef}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
